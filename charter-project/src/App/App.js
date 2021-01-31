@@ -7,12 +7,17 @@ function App() {
       <header className="App-header">
         <h1>Rewards</h1>
           <table>
-            <th>Customer</th>
-            <th>November</th>
-            <th>December</th>
-            <th>January</th>
-            <th>Total</th>
-            <Customers />
+
+            <tbody>
+              <tr>
+                <th>Customer</th>
+                <th>November</th>
+                <th>December</th>
+                <th>January</th>
+                <th>Total</th>
+              </tr>
+              <Customers />
+            </tbody>
           </table>
       </header>
     </div>
