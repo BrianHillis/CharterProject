@@ -1,5 +1,6 @@
 # Charter Project
 - A React app to calculate customers monthly and total rewards points based on the last 3 months.
+
 ![Preview](https://raw.githubusercontent.com/BrianHillis/CharterProject/main/public/CharterProject.PNG)
 ## Details
 - A retailer offers a rewards program to its customers, awarding points based on each recorded purchase.
