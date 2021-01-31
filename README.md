@@ -1,6 +1,6 @@
 # Charter Project
 - A React app to calculate customers monthly and total rewards points based on the last 3 months.
-![Preview](https://photos.google.com/u/1/photo/AF1QipMqJ_ax1u9c3GX1QQZWl1y4p9crpgVpvSQKHH50)
+![Preview](https://photos.app.goo.gl/trKmvQYFj2MjSy2c9)
 ## Details
 - A retailer offers a rewards program to its customers, awarding points based on each recorded purchase.
 - A customer recieves 2 points for every dollar spent over $100 in each transaction, plus 1 point for every dollar spent over $50 in each transaction.
