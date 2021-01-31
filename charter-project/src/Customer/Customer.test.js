@@ -31,22 +31,34 @@ test('Customers properly condenses data set', () => {
 
 test('calculateMonthlyRewards returns correct point calculcations', () => {
   let data = reduceCustomerData(customerData);
+
   //empty array
   let all0PurchaseAmounts = data[0];
   all0PurchaseAmounts.purchase_amount.fill(0);
-  expect(calculateMonthlyRewards(all0PurchaseAmounts)).toEqual([0,0,0]);
+  // expect(calculateMonthlyRewards(all0PurchaseAmounts)).toEqual([0,0,0]);
+  calculateMonthlyRewards(all0PurchaseAmounts);
+  expect(all0PurchaseAmounts.monthly_rewards).toEqual([0,0,0]);
+
   // normal
   let normalCustomer = data[1];
-  expect(calculateMonthlyRewards(normalCustomer)).toEqual([14,936,0]);
+  calculateMonthlyRewards(normalCustomer);
+  expect(normalCustomer.monthly_rewards).toEqual([14,936,0]);
+  // expect(calculateMonthlyRewards(normalCustomer)).toEqual([14,936,0]);
+
   // on the borders
   let borders100 = data[2];
   borders100.purchase_amount.fill(100);
-  let totalBorderRewards = calculateMonthlyRewards(borders100).reduce((a,b) => a + b, 0);
+  calculateMonthlyRewards(borders100);
+  let totalBorderRewards = borders100.monthly_rewards.reduce((a,b) => a + b, 0);
   expect(totalBorderRewards).toEqual(borders100.purchase_amount.length * 50);
+
   let borders50 = data[3];
   borders50.purchase_amount.fill(50);
-  totalBorderRewards = calculateMonthlyRewards(borders50).reduce((a,b) => a + b, 0);
+  calculateMonthlyRewards(borders50);
+  expect(borders50.monthly_rewards).toEqual([0,0,0]);
+  totalBorderRewards = borders50.monthly_rewards.reduce((a,b) => a + b, 0);
   expect(totalBorderRewards).toEqual(0);
+
   // pass invalid/weird numbers
   let badNumbers = data[4];
   badNumbers.purchase_amount.fill(0);
@@ -56,5 +68,6 @@ test('calculateMonthlyRewards returns correct point calculcations', () => {
   badNumbers.purchase_amount[3] = "hello world";
   badNumbers.purchase_amount[4] = null;
   badNumbers.purchase_amount[5] = NaN;
-  expect(calculateMonthlyRewards(badNumbers)).toEqual([0,0,0]);
+  calculateMonthlyRewards(badNumbers);
+  expect(badNumbers.monthly_rewards).toEqual([0,0,0]);
 });

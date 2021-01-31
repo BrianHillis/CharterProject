@@ -3,7 +3,10 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  /* gradient background generated at https://cssgradient.io/gradient-backgrounds/ */
+  background: #232526;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -13,11 +16,41 @@
   color: white;
 }
 
-table, th, td {
-  border: 1px solid black;
+.Table-Header{
+  width:75%;
+  height:10%;
+  border-bottom: 1px solid rgba(255,255,255,.4);
 }
 
-table{
-  margin-bottom: 5%;
-  width:75%;
+.Table-Content{
+  width: 75%;
+  overflow-x: auto;
+  height:75vh;
+  margin-top: 0px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,.4);
 }
+
+/* table displaying customers */
+div table{
+  width:100%;
+}
+
+/* table headers that arent customer */
+th{
+  width:17.45%;
+}
+
+/* scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 6px;
+} 
+::-webkit-scrollbar-track {
+  box-shadow:  inset 0 0 6px rgba(0,0,0,0.5);
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+} 
+::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.8);
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.8); 
+}
+
